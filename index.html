@@ -52,7 +52,7 @@
           <li><a href="#hero" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Home</span></a></li>
           <li><a href="#about" class="nav-link scrollto"><i class="bx bx-user"></i> <span>About</span></a></li>
           <li><a href="#resume" class="nav-link scrollto"><i class="bx bx-file-blank"></i> <span>Resume</span></a></li>
-          <li><a href="#services" class="nav-link scrollto"><i class="bx bx-server"></i> <span>Projects</span></a></li>
+          <li><a href="#portfolio" class="nav-link scrollto"><i class="bx bx-server"></i> <span>Projects</span></a></li>
           <li><a href="#contact" class="nav-link scrollto"><i class="bx bx-envelope"></i> <span>Contact</span></a></li>
         </ul>
       </nav><!-- .nav-menu -->
@@ -60,12 +60,42 @@
   </header><!-- End Header -->
 
   <!-- ======= Hero Section ======= -->
-  <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
-    <div class="hero-container" data-aos="fade-in">
-      <h1>César Núñez</h1>
-      <p>I'm <span class="typed" data-typed-items="an Economist, a Data Scientist, a Consultant"></span></p>
+  <section id="hero" class="d-flex flex-column justify-content-center align-items-center" 
+  style="position: relative; width: 100%; height: 100vh;">
+    <div class="hero-container" data-aos="fade-in" 
+    style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; display: flex; flex-direction: column; justify-content: center; align-items: center; z-index: 2; color: white; text-align: center;">
+    <h1>César Núñez</h1>
+    <p>I'm <span class="typed" data-typed-items="an Economist, a Data Scientist, a Consultant"></span></p>
     </div>
-  </section><!-- End Hero -->
+
+    <!-- Slideshow container -->
+    <div class="slideshow-container" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1;">
+    <img class="slide" src="assets/img/hero_bg.jpg" style="width: 100%; height: 100%; object-fit: cover; object-position: top; position: absolute; opacity: 1;">
+    <img class="slide" src="assets/img/hero_bg2.jpg" style="width: 100%; height: 100%; object-fit: cover; object-position: top 20%; position: absolute; opacity: 0;">
+    <img class="slide" src="assets/img/hero_bg3.jpg" style="width: 100%; height: 100%; object-fit: cover; object-position: top 20%; position: absolute; opacity: 0;">
+    </div>
+    </section>
+
+    <script>
+    let slideIndex = 0;
+    const slides = document.getElementsByClassName("slide");
+
+    function showSlides() {
+    for (let i = 0; i < slides.length; i++) {
+    slides[i].style.opacity = "0";  // Hide all slides
+    }
+    slideIndex++;
+    if (slideIndex > slides.length) { 
+    slideIndex = 1;  // Reset to first slide
+    }
+    slides[slideIndex - 1].style.opacity = "1";  // Show the current slide
+    setTimeout(showSlides, 5000);  // Change slide every 5 seconds
+    }
+
+    showSlides();  // Initialize slideshow
+    </script>
+
+  <!-- End Hero -->
 
   <main id="main">
 
@@ -327,19 +357,17 @@
               <li data-filter=".filter-2024">2024</li>
               <li data-filter=".filter-2023">2023</li>
               <li data-filter=".filter-other">Other</li>
-              <!-- <li data-filter=".filter-web">R</li> -->
             </ul>
           </div>
         </div>
-
+        
         <div class="row portfolio-container">
-
+          <!-- Primera fila con 3 proyectos -->
           <div class="col-lg-4 col-md-6 portfolio-item filter-2024">
             <div class="portfolio-wrap">
               <img src="assets/img/portfolio/portada1.jpg" class="img-fluid" alt="">
               <div class="portfolio-info">
                 <h4>Urban poverty: a challenge for social policy in Peru</h4>
-                <p></p>
               </div>
               <div class="portfolio-links">
                 <a href="assets/img/portfolio/pobreza1.png" data-gallery="portfolioGallery" class="portfolio-lightbox" title=""><i class="bx bx-plus"></i></a>
@@ -347,13 +375,12 @@
               </div>
             </div>
           </div>
-
+        
           <div class="col-lg-4 col-md-6 portfolio-item filter-2024">
             <div class="portfolio-wrap">
               <img src="assets/img/portfolio/portada2.jpg" class="img-fluid" alt="">
               <div class="portfolio-info">
                 <h4>Early childhood development: strategic investment for Peru's future</h4>
-                <p> </p>
               </div>
               <div class="portfolio-links">
                 <a href="assets/img/portfolio/dit1.png" data-gallery="portfolioGallery" class="portfolio-lightbox" title=""><i class="bx bx-plus"></i></a>
@@ -361,13 +388,12 @@
               </div>
             </div>
           </div>
-
+        
           <div class="col-lg-4 col-md-6 portfolio-item filter-2023">
             <div class="portfolio-wrap">
               <img src="assets/img/portfolio/portada3.jpg" class="img-fluid" alt="">
               <div class="portfolio-info">
                 <h4>Sentiment analysis of social conflicts associated with mining activity in Peru: 2007-2019</h4>
-                <p> </p>
               </div>
               <div class="portfolio-links">
                 <a href="assets/img/portfolio/sentiment.png" data-gallery="portfolioGallery" class="portfolio-lightbox" title=""><i class="bx bx-plus"></i></a>
@@ -375,16 +401,32 @@
               </div>
             </div>
           </div>
+        </div>
+        
+        <div class="row portfolio-container">
+          <!-- Segunda fila con 2 proyectos -->
           <div class="col-lg-4 col-md-6 portfolio-item filter-2024">
             <div class="portfolio-wrap">
               <img src="assets/img/portfolio/portada4.jpg" class="img-fluid" alt="">
               <div class="portfolio-info">
                 <h4>Development of a Shinny Dashboard on housing deficit with a territorial approach in Peru</h4>
-                <p> </p>
               </div>
               <div class="portfolio-links">
                 <a href="assets/img/portfolio/dashboard.png" data-gallery="portfolioGallery" class="portfolio-lightbox" title=""><i class="bx bx-plus"></i></a>
                 <a href="portfolio-details-research-4.html" title="More Details"><i class="bx bx-link"></i></a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-lg-4 col-md-6 portfolio-item filter-2022">
+            <div class="portfolio-wrap">
+              <img src="assets/img/portfolio/portada5.jpg" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Development of a Shinny Dashboard on regional data on utilities coverage in Peru (water, electricity and sanitation)</h4>
+              </div>
+              <div class="portfolio-links">
+                <a href="assets/img/portfolio/dashboard1.png" data-gallery="portfolioGallery" class="portfolio-lightbox" title=""><i class="bx bx-plus"></i></a>
+                <a href="portfolio-details-research-5.html" title="More Details"><i class="bx bx-link"></i></a>
               </div>
             </div>
           </div>
